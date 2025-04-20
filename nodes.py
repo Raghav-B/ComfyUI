@@ -565,8 +565,7 @@ class CheckpointLoaderSimple:
     CATEGORY = "loaders"
     DESCRIPTION = "Loads a diffusion model checkpoint, diffusion models are used to denoise latents."
 
-    def load_checkpoint(self, ckpt_name):
-        ckpt_path = folder_paths.get_full_path_or_raise("checkpoints", ckpt_name)
+    def load_checkpoint(self, ckpt_path):
         out = comfy.sd.load_checkpoint_guess_config(ckpt_path, output_vae=True, output_clip=True, embedding_directory=folder_paths.get_folder_paths("embeddings"))
         return out[:3]
 
